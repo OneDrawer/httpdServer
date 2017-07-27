@@ -241,6 +241,7 @@ void execute_cgi(int client, const char *path, const char *method, const char *q
     {
         /* 对 POST 的 HTTP 请求中找出 content_length */
         numchars = get_line(client, buf, sizeof(buf));
+	/*注意这里的判断条件，读到空行则继续往下读取*/
         while ((numchars > 0) && strcmp("\n", buf))
         {
             /*利用 \0 进行分隔 */
