@@ -1,16 +1,4 @@
-A mirror for tinyhttpd
-测试CGI时需要本机安装PERL，同时安装perl-cgi
 
-### Prepare 
-Compile for Linux
-```
- To compile for Linux:
-  1) Comment out the #include <pthread.h> line.
-  2) Comment out the line that defines the variable newthread.
-  3) Comment out the two lines that run pthread_create().
-  4) Uncomment the line that runs accept_request().
-  5) Remove -lsocket from the Makefile.
-```
 
 <p>&nbsp; &nbsp; &nbsp;每个函数的作用：</p>
 <p>&nbsp; &nbsp; &nbsp;accept_request: &nbsp;处理从套接字上监听到的一个 HTTP 请求，在这里可以很大一部分地体现服务器处理请求流程。</p>
@@ -27,7 +15,6 @@ Compile for Linux
 <p>&nbsp; &nbsp; &nbsp;unimplemented: 返回给浏览器表明收到的 HTTP 请求所用的 method 不被支持。</p>
 <p><br>
 </p>
-<p>&nbsp; &nbsp; &nbsp;建议源码阅读顺序： main -&gt; startup -&gt; accept_request -&gt; execute_cgi, 通晓主要工作流程后再仔细把每个函数的源码看一看。</p>
 <p><br>
 </p>
 <h4>&nbsp; &nbsp; &nbsp;工作流程</h4>
